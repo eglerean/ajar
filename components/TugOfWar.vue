@@ -3,14 +3,15 @@ import { computed } from 'vue'
 
 /**
  * Tug of war from slide 3 of the compact deck: integrity pulls towards open,
- * privacy pulls towards closed; AI stands behind integrity, cybersecurity behind privacy;
+ * privacy pulls towards closed; AI stands behind both sides (on the privacy side it includes
+ * cybersecurity, treated as part of AI governance risks);
  * the marker in the middle is "your decision".
  *
  *   <TugOfWar />                                     full diagram (slide 3)
  *   <TugOfWar mini active="privacy" />               corner icon, one part highlighted
  *   <TugOfWar mini :active="['ai', 'integrity']" />
  *
- * Parts: integrity, privacy, ai, cyber, decision.
+ * Parts: integrity, privacy, ai, cyber, decision. "cyber" is the right-hand AI box, labelled AI.
  * Use the mini version inside <div class="corner-icon"> (style.css).
  */
 const props = defineProps({
@@ -38,7 +39,7 @@ function cls(part: string) {
     <text x="13" y="33" class="tw-l tw-ls">AI</text>
     <text x="47" y="33" class="tw-l">I</text>
     <text x="117" y="33" class="tw-l">P</text>
-    <text x="151" y="33" class="tw-l tw-ls">C</text>
+    <text x="151" y="33" class="tw-l tw-ls">AI</text>
   </svg>
 
   <!-- Full diagram -->
@@ -67,7 +68,7 @@ function cls(part: string) {
     <text x="505" y="98" class="tw-name">Privacy</text>
     <text x="505" y="122" class="tw-sub">nobody harmed</text>
     <text x="505" y="138" class="tw-sub">by taking part</text>
-    <!-- AI behind privacy (the mini icon still labels this part "C") -->
+    <!-- AI behind privacy (part name "cyber") -->
     <rect x="580" y="62" width="100" height="86" rx="12" :class="cls('cyber')" class="tw-back" />
     <text x="630" y="100" class="tw-name">AI</text>
     <text x="630" y="122" class="tw-sub">adds risk</text>

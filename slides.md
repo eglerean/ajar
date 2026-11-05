@@ -93,12 +93,208 @@ class: fit-image
 </style>
 
 ---
+layout: section
+color: dark
+hexText: "AI?"
+class: title-middle
+---
+
+# What is AI?
+
+
+---
+layout: three-cols
+---
+
+::header::
+# What is AI in research? Topic, method, tool
+
+<div class="ref-line">Reference: <a href="https://www.aalto.fi/en/research-art/best-practices-for-ai-use-in-research-work">Best practices for AI use in research work (Aalto.fi)</a></div>
+
+::left::
+
+### AI as a **topic**
+
+AI is what is being studied.
+
+- A new ML model or architecture
+- A new algorithm for training
+- How people interact with AI chatbots
+
+::center::
+
+### AI as a **method**
+
+AI is how the data are analysed.
+
+- A deep neural network that classifies tissue in cancer imaging data
+- A scikit-learn model in the analysis of a dataset
+
+::right::
+
+### AI as a **tool**
+
+AI is something that helps with the work.
+
+- Brainstorming with a chatbot
+- A coding agent writing analysis scripts
+- An AI assistant helping to fill in a data management plan
+
+<p class="small">Invisible AI: in word processors, search engines, translation, transcription tools, automatic meeting note-takers.</p>
+
+
+
+---
 layout: default
 ---
 
-###### The tension
+# Generative AI and Research Integrity
 
-# One tension, two added risks
+<div class="ref-line">Figure adapted from Glerean (2025) <a href="https://www.edpb.europa.eu/our-work-tools/our-documents/support-pool-experts-projects/fundamentals-secure-ai-systems-personal_en">“Fundamentals of secure AI systems with personal data”</a>, European Data Protection Board</div>
+
+<p>For simplicity we focus on <strong>generative AI systems</strong> that use <strong>General Purpose AI models</strong> such as <strong>Large Language Models</strong> that can be used in your research work,  including <strong>agentic AI</strong> systems.</p>
+
+<div class="grid-2-3">
+  <div class="card">
+    <h3>Generating one modality from another</h3>
+    <ul>
+      <li>Text → Text</li>
+      <li>Text → Code</li>
+      <li>Speech → Text</li>
+      <li>Text → Speech</li>
+      <li>Text → Image</li>
+      <li>Image → Text</li>
+      <li>…</li>
+    </ul>
+  </div>
+  <div class="card dark ai-sys-diagram">
+    <div class="asd-io-wrap asd-in">
+      <div class="asd-io"><div class="asd-label">Data &amp; Input</div></div>
+      <div class="asd-sample small">“Translate this email from English to Finnish: Hi Annukka, the AI lecture of our…”</div>
+    </div>
+    <div class="asd-arrow asd-in">→</div>
+    <div class="asd-system">
+      <div class="asd-label">AI system</div>
+      <div class="asd-sub">e.g. a chatbot</div>
+      <div class="asd-model">
+        <div class="asd-label">AI model</div>
+        <div class="asd-sub">e.g. a Large Language Model</div>
+      </div>
+    </div>
+    <div class="asd-io-wrap asd-out">
+      <div class="asd-io"><div class="asd-label">Outputs</div></div>
+      <div class="asd-sample small">“Hei Annukka, tutkimusetiikan kurssimme tekoälyluento on…”</div>
+    </div>
+    <div class="asd-arrow asd-out">←</div>
+  </div>
+</div>
+
+<style>
+/* Dark box: inputs (top) go into the AI system, which wraps the AI model; outputs (bottom) come back out on the same side.
+   Same look as the agent diagram (Harness and Model boxes) */
+.ai-sys-diagram { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); grid-template-rows: 1fr 1fr; gap: 0.5rem 0.6rem; align-items: center; }
+.ai-sys-diagram .asd-label { font-family: var(--asc-font-serif); font-weight: 600; font-size: 1.1rem; }
+.ai-sys-diagram .asd-sub { font-size: 0.8rem; opacity: 0.8; }
+.asd-in { grid-row: 1; }
+.asd-out { grid-row: 2; }
+/* Example prompt and output under the two boxes, in small monospace text */
+.asd-io-wrap { grid-column: 1; }
+.asd-sample { margin-top: 0.4rem; font-family: var(--asc-font-mono); opacity: 0.85; }
+.asd-io { padding: 0.8rem 0.9rem; text-align: center; background: var(--asc-night-raised); border: 1px solid rgba(250, 249, 245, 0.3); border-radius: var(--asc-radius-md); }
+.asd-arrow { grid-column: 2; font-size: 1.6rem; line-height: 1; color: var(--asc-clay); }
+.asd-system { grid-column: 3; grid-row: 1 / span 2; align-self: stretch; display: flex; flex-direction: column; padding: 0.8rem 1rem 1rem; border: 2px solid var(--asc-clay); border-radius: var(--asc-radius-lg); }
+.asd-system .asd-model { flex: 1; margin-top: 0.6rem; display: flex; flex-direction: column; justify-content: center; padding: 1rem 0.9rem; text-align: center; background: var(--asc-clay); color: var(--asc-ink); border-radius: var(--asc-radius-md); }
+.asd-model .asd-sub { opacity: 0.85; }
+</style>
+
+---
+layout: default
+color: dark
+---
+
+# What is an AI agent?
+
+<div class="grid-2-3">
+<div>
+The four elements of an AI agent: <strong>a) goal complexity, b) environmental complexity, c) adaptability, d) independent execution. </strong> (<a href="https://doi.org/10.1787/396cf758-en%20">OECD 2026</a>).
+
+An AI agent pairs the model with more components so that it can **take real actions**.
+
+- **The model**, the "intelligence box": the LLM itself.
+- **The scaffolding**, between the two: system prompts, tool descriptions, and the rules for how context is assembled and formatted before it reaches the model.
+- **The harness**, the "body": the code around the model that calls it, carries out whatever it asks for, and decides when the task is done.
+
+</div>
+<div>
+<div class="agent-diagram">
+  <div class="ad-harness">
+    <div class="ad-label">Harness · the body</div>
+    <div class="ad-sub">calls the model · runs its actions · decides when done</div>
+    <div class="ad-scaffold">
+      <div class="ad-label">Scaffolding</div>
+      <div class="ad-sub">system prompt · tool descriptions · context assembly</div>
+      <div class="ad-model">
+        <div class="ad-label">Model</div>
+        <div class="ad-sub">the LLM · the intelligence box</div>
+      </div>
+    </div>
+  </div>
+  <div class="ad-bottom">
+    <div class="ad-arrows">⇅</div>
+    <div></div>
+    <div class="ad-arrows">⇅</div>
+    <div class="ad-env">
+      <div class="ad-label">Environment</div>
+      <div class="ad-chips"><span>files</span><span>shell</span><span>Slurm</span><span>APIs</span><span>web</span><span>Git</span><span>databases</span><span>MCP</span><span>emails / chat</span></div>
+    </div>
+    <div class="ad-arrows ad-side">⇄</div>
+    <div class="ad-subs">
+      <div class="ad-subagent"><div class="ad-label">Sub-agent</div></div>
+      <div class="ad-subagent"><div class="ad-label">Sub-agent</div></div>
+    </div>
+  </div>
+</div>
+<div class="ad-source">Adapted from Hugging Face, <a href="https://huggingface.co/blog/agent-glossary">"Harness, Scaffold, and the AI Agent Terms Worth Getting Right"</a>, 2026</div>
+</div>
+</div>
+
+<style>
+.agent-diagram { display: flex; flex-direction: column; align-items: stretch; gap: 0.4rem; font-size: 0.8rem; }
+.agent-diagram .ad-label { font-family: var(--asc-font-serif); font-weight: 600; font-size: 1rem; }
+.agent-diagram .ad-sub { opacity: 0.75; font-size: 0.72rem; margin-bottom: 0.5rem; }
+.ad-harness { border: 2px solid var(--asc-clay); border-radius: var(--asc-radius-lg); padding: 0.8rem 1rem; }
+.ad-scaffold { border: 1.5px dashed rgba(250, 249, 245, 0.45); border-radius: var(--asc-radius-md); padding: 0.7rem 0.9rem; background: var(--asc-night-raised); }
+.ad-model { background: var(--asc-clay); color: var(--asc-ink); border-radius: var(--asc-radius-md); padding: 0.6rem 0.9rem; }
+.ad-model .ad-sub { margin-bottom: 0; opacity: 0.85; }
+.ad-arrows { text-align: center; font-size: 1.4rem; line-height: 1; color: var(--asc-clay); }
+/* Bottom row: Environment (half the Harness width) ⇄ two sub-agents; row above holds the ⇅ to the Harness */
+.ad-bottom { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0.4rem 0.5rem; align-items: stretch; }
+.ad-side { align-self: center; }
+.ad-subs { display: flex; gap: 0.5rem; }
+.ad-subagent { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; border: 2px solid var(--asc-clay); border-radius: var(--asc-radius-md); padding: 0.55rem 0.5rem; }
+.ad-env { border: 1px solid rgba(250, 249, 245, 0.3); border-radius: var(--asc-radius-md); padding: 0.55rem 0.9rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+.ad-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.ad-chips span { background: rgba(250, 249, 245, 0.12); border-radius: 999px; padding: 0.1rem 0.6rem; font-size: 0.72rem; }
+.ad-source { font-size: 0.65rem; opacity: 0.7; margin-top: 0.6rem; text-align: right; }
+</style>
+
+
+
+---
+layout: section
+color: dark
+hexText: "OPEN?\nCLOSED?"
+class: title-middle
+---
+
+# The tension
+## Open science versus data privacy
+
+---
+layout: default
+---
+
+# One tension, many added risks
 
 <div class="tow-wrap"><TugOfWar /></div>
 
@@ -142,6 +338,8 @@ layout: default
 This picture returns as the small icon in the top-right corner, with the part we are talking about highlighted.
 -->
 
+
+
 ---
 layout: default
 ---
@@ -150,14 +348,14 @@ layout: default
 
 ###### The added risks
 
-# AI makes research harder to check
+# Generative AI: the epistemic risks
 
 <div class="grid-3-2">
 <div>
 
+- **The ideal misconduct machine?** Generative AI always produces text and leaves quality control to the user. Unchecked output can turn into **fabrication, falsification or plagiarism**, and **hiding AI use is itself an integrity violation**, listed next to them (ALLEA 2023 §3.1).
 - **Errors get cheaper.** Papers citing references that do not exist: 1 in 2,828 in 2023, 1 in 277 in early 2026.
 - **The same prompt can give different outputs**, so "we used ChatGPT" does not let anyone reconstruct the work.
-- **Hiding AI use is an integrity violation** (ALLEA 2023 §3.1).
 - **Peer review is exposed too:** authors have hidden instructions in manuscripts to steer AI reviewers.
 - **The catch:** prompts and logs make AI use checkable, but they can contain confidential text. That is the tension again.
 
@@ -171,11 +369,10 @@ layout: default
     <div class="step"><b>Output</b>plausible, not checked</div>
   </div>
   <div class="ai-log"><span class="warn">⚠</span><div><b>The log</b>makes the work checkable, but can contain confidential text</div></div>
-  <div class="card yellow misconduct"><strong>Generative AI: the ideal misconduct machine?</strong> It always produces text and leaves quality control to the user. More cases in <a href="https://github.com/eglerean/genAI_researchintegrity">AI tools, Research Integrity and Ethics</a>.</div>
 </div>
 </div>
 
-<div class="ref-bottom"><a href="https://retractionwatch.com/2026/05/07/one-in-277-pubmed-indexed-papers-in-2026-shows-fabricated-references-says-analysis/">Topaz 2026</a> · <a href="https://research-and-innovation.ec.europa.eu/document/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en">EC Guidelines v4</a> · <a href="https://doi.org/10.48550/arXiv.2602.14349">Cui &amp; Alexander 2026</a> · <a href="https://doi.org/10.26356/ECOC">ALLEA 2023</a> · <a href="https://asia.nikkei.com/business/technology/artificial-intelligence/positive-review-only-researchers-hide-ai-prompts-in-papers">Nikkei 2025</a></div>
+<div class="ref-bottom"><a href="https://retractionwatch.com/2026/05/07/one-in-277-pubmed-indexed-papers-in-2026-shows-fabricated-references-says-analysis/">Topaz 2026</a> · <a href="https://research-and-innovation.ec.europa.eu/document/2b6cf7e5-36ac-41cb-aab5-0d32050143dc_en">EC Guidelines v4</a> · <a href="https://doi.org/10.48550/arXiv.2602.14349">Cui &amp; Alexander 2026</a> · <a href="https://doi.org/10.26356/ECOC">ALLEA 2023</a> · <a href="https://asia.nikkei.com/business/technology/artificial-intelligence/positive-review-only-researchers-hide-ai-prompts-in-papers">Nikkei 2025</a> · More cases: <a href="https://github.com/eglerean/genAI_researchintegrity">AI tools, Research Integrity and Ethics</a></div>
 
 <style>
 .slidev-layout .ai-flow .step { text-align: center; font-size: 0.72rem; }
@@ -184,14 +381,13 @@ layout: default
 .ai-log { display: flex; gap: 0.5rem; align-items: center; margin: 0.4rem 20% 0.8rem; padding: 0.35rem 0.6rem; border: 2px dashed var(--aalto-orange); border-radius: var(--asc-radius-md); font-size: 0.72rem; line-height: 1.2; }
 .ai-log b { display: block; font-family: var(--asc-font-serif); font-size: 0.82rem; }
 .ai-log .warn { font-size: 1.4rem; color: var(--aalto-orange); }
-.misconduct { font-size: 0.72rem; line-height: 1.25; }
 </style>
 
 <!--
 CHECK BEFORE PRESENTING
 - Topaz counts references to papers that do not exist. It does not prove AI caused each one, and 91% of affected papers had only one or two.
 
-The yellow card reuses "Generative AI: the ideal misconduct machine?" from the genAI_researchintegrity deck.
+The first bullet reuses "Generative AI: the ideal misconduct machine?" from the genAI_researchintegrity deck.
 -->
 
 ---
@@ -202,57 +398,76 @@ layout: default
 
 ###### The added risks
 
-# Closed data is only as safe as its security
+# Generative AI: the governance risks
 
-<div class="timeline">
-  <div class="tl-line"></div>
-  <div class="tl-item">
-    <div class="tl-year">2020</div>
-    <div class="tl-card"><span class="kind attack">Attack</span><b>Vastaamo</b><br>Therapy records stolen, patients blackmailed.</div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-year">2023</div>
-    <div class="tl-card"><span class="kind attack">Attack</span><b>University of Manchester</b><br>Research data on about 1.1 million NHS patients affected.</div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-year">2023</div>
-    <div class="tl-card"><span class="kind mistake">Mistake</span><b>Microsoft AI research</b><br>A link for sharing AI models also opened 38 TB of other data.</div>
-  </div>
-  <div class="tl-item">
-    <div class="tl-year">2026</div>
-    <div class="tl-card"><span class="kind misuse">Misuse</span><b>UK Biobank</b><br>No hack: approved institutions broke the rules.</div>
-  </div>
+<div class="grid-gov">
+<div class="gov-left">
+
+- **Agents act, they do not just answer.** An AI agent can read files, run code and use your credentials. Whatever it can reach, anyone who takes control of it can reach too.
+- **Hidden instructions hijack agents.** Text in a web page, email or document can tell an agent to send data elsewhere (prompt injection). There is no reliable fix yet.
+- **Attacks get cheaper.** In 2025 one actor used an AI coding agent to steal data from at least 17 organizations in about a month, healthcare among them.
+- **Re-identification gets cheaper.** 6 of 24 public interview transcripts were linked to publications, at under $0.50 each (preprint: <a href="https://arxiv.org/abs/2601.05918">Li 2026</a>).
+- **Sovereignty is a security control.** A US provider can be compelled to hand over data even from EU data centres (CLOUD Act). **Sovereign AI**, open models on European infrastructure such as the LUMI AI Factory, keeps data under EU law.
+
+</div>
+<div>
+<div class="breach-head">Closed data, breached</div>
+<ul class="breaches">
+  <li><span class="kind attack">Attack</span><b><a href="https://cyberscoop.com/finnish-psychotherapy-data-breach-vastaamo/">Vastaamo, 2020</a></b>: therapy records stolen, patients blackmailed.</li>
+  <li><span class="kind attack">Attack</span><b><a href="https://www.govinfosecurity.com/trauma-terrorist-victim-data-breached-in-university-attack-a-22409">University of Manchester, 2023</a></b>: data on 1.1 million NHS patients.</li>
+  <li><span class="kind mistake">Mistake</span><b><a href="https://wiz.io/blog/38-terabytes-of-private-data-accidentally-exposed-by-microsoft-ai-researchers">Microsoft AI research, 2023</a></b>: a model-sharing link exposed 38 TB.</li>
+  <li><span class="kind agent">AI agent</span><b><a href="https://www.anthropic.com/news/detecting-countering-misuse-aug-2025">Data extortion, 2025</a></b>: an AI coding agent broke in, stole data and wrote the ransom notes.</li>
+  <li><span class="kind misuse">Misuse</span><b><a href="https://www.ukbiobank.ac.uk/news/report-into-data-security-at-uk-biobank-published/">UK Biobank, 2026</a></b>: approved users broke the rules.</li>
+</ul>
+<div class="breach-head">Not only personal data</div>
+<p class="breach-note">Drafts, code and ideas sent to remote AI tools are confidential too.</p>
+<ul class="breaches">
+  <li><span class="kind disputed">Disputed</span><b><a href="https://www.nature.com/articles/d41586-026-02910-w">Navier–Stokes, 2026</a></b>: mathematicians who checked unpublished work with Codex ask whether it fed OpenAI's result. OpenAI: unlikely, cannot rule it out.</li>
+  <li><span class="kind disputed">Disputed</span><b><a href="https://theconversation.com/a-biologist-queries-whether-ai-borrowed-his-work-to-make-major-discovery-an-expert-explains-the-rules-293529">Claude's "new" enzyme, 2026</a></b>: a Copenhagen researcher who shared drafts with Claude had found the enzymes first. Anthropic: no access to his chats.</li>
+</ul>
+</div>
 </div>
 
-<div class="grid-3-2">
-  <div class="card">
-    <h3>AI helps the attacker</h3>
-    <p>6 of 24 public interview transcripts were linked to publications, at under $0.50 each. Participants had agreed to release, so this shows a capability, not documented harm. <span class="badge preprint">Preprint</span></p>
-  </div>
-  <div class="card dark rules">
-    <p>A contract states the rule. <strong>Only a technical control enforces it.</strong></p>
-  </div>
-</div>
-
-<div class="ref-bottom"><a href="https://cyberscoop.com/finnish-psychotherapy-data-breach-vastaamo/">Vastaamo 2020</a> · <a href="https://www.govinfosecurity.com/trauma-terrorist-victim-data-breached-in-university-attack-a-22409">Manchester 2023</a> · <a href="https://wiz.io/blog/38-terabytes-of-private-data-accidentally-exposed-by-microsoft-ai-researchers">Wiz 2023</a> · <a href="https://www.ukbiobank.ac.uk/news/report-into-data-security-at-uk-biobank-published/">UKB Oversight 2026</a> · <a href="https://arxiv.org/abs/2601.05918">Li 2026</a></div>
+<div class="ref-bottom"><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">OWASP LLM01 2025</a> · <a href="https://www.anthropic.com/news/detecting-countering-misuse-aug-2025">Anthropic 2025</a> · <a href="https://arxiv.org/abs/2601.05918">Li 2026</a> · <a href="https://www.justice.gov/criminal/cloud-act-resources">CLOUD Act</a> · <a href="https://www.lumi-ai-factory.eu/">LUMI AI Factory</a> · More: <a href="https://eglerean.github.io/genAI_researchintegrity/">AI tools, Research Integrity and Ethics</a></div>
 
 <style>
-.timeline { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem; margin-bottom: 1rem; }
-.tl-line { position: absolute !important; left: 0; right: 0; top: 0.75rem; height: 3px; background: var(--asc-border); }
-.tl-year { position: relative; display: inline-block; padding: 0.05rem 0.6rem; border-radius: 999px; background: var(--asc-night); color: var(--asc-paper); font-weight: 700; font-size: 0.8rem; margin-bottom: 0.35rem; }
-.tl-card { padding: 0.5rem 0.65rem; border: 2px solid var(--asc-border); border-radius: var(--asc-radius-md); background: var(--asc-surface); font-size: 0.8rem; line-height: 1.25; }
-.tl-card b { font-family: var(--asc-font-serif); font-size: 0.9rem; }
-.kind { display: block; width: fit-content; margin-bottom: 0.3rem; padding: 0.05rem 0.5rem; border-radius: 999px; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #000; }
+.breach-head { font-family: var(--asc-font-serif); font-weight: 700; font-size: 0.9rem; margin: -0.3rem 0 0.25rem; }
+.slidev-layout ul.breaches { list-style: none; margin: 0 !important; padding: 0 !important; }
+.slidev-layout ul.breaches li { padding: 0.25rem 0.55rem; margin: 0 0 0.25rem !important; border: 2px solid var(--asc-border); border-radius: var(--asc-radius-md); background: var(--asc-surface); font-size: 0.66rem !important; line-height: 1.22 !important; }
+.slidev-layout ul.breaches li::before { display: none; }
+.slidev-layout ul.breaches li b { font-family: var(--asc-font-serif); }
+.slidev-layout ul.breaches li b a { color: inherit; border-bottom: none !important; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.slidev-layout .grid-gov { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 1.2rem; }
+.slidev-layout .gov-left li { font-size: 0.86rem !important; line-height: 1.3 !important; margin: 0.2rem 0 !important; }
+.kind { display: inline-block; margin-right: 0.35rem; padding: 0.02rem 0.45rem; border-radius: 999px; font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #000; vertical-align: 0.1em; }
 .kind.attack { background: var(--aalto-red); }
 .kind.mistake { background: var(--aalto-orange); }
 .kind.misuse { background: var(--aalto-darkyellow); }
-.rules { display: flex; align-items: center; font-size: 1.15rem; }
+.kind.agent { background: var(--asc-night); color: var(--asc-paper); }
+.kind.disputed { background: transparent; border: 1.5px dashed var(--asc-text); }
+.slidev-layout .breach-note { font-size: 0.68rem !important; line-height: 1.25 !important; margin: 0 0 0.3rem !important; }
+.breaches + .breach-head { margin-top: 0.35rem; }
+.slidev-layout .grid-gov ~ .ref-bottom { right: 49% !important; }
 </style>
 
 <!--
 CHECK BEFORE PRESENTING
 - Li 2026 is a single-author preprint with manual verification.
+- Navier–Stokes and the enzyme case are disputes, not proven leaks. Neither researcher accuses the company of taking the work on purpose. Say "ask whether", not "was stolen".
+- CLOUD Act: a US provider can be ordered to disclose data it controls wherever it is stored; providers can challenge orders that conflict with foreign law. EU-US Data Privacy Framework does not change this.
+- Anthropic 2025 is the vendor's own threat report; victims are not named. "Demands sometimes above $500,000" are demands, not payments.
 -->
+
+
+
+---
+layout: section
+color: dark
+hexText: "HOW\nTO\nSOLVE?"
+class: title-middle
+---
+
+# What should researchers and research support do?
 
 ---
 layout: default
@@ -260,9 +475,7 @@ layout: default
 
 <div class="corner-icon"><TugOfWar mini active="decision" /></div>
 
-###### Move 1 of 4
-
-# Decide per object, and write down why
+# 1. For each object pick a level of protection
 
 <div>
 
@@ -306,16 +519,14 @@ layout: default
 
 <div class="corner-icon"><TugOfWar mini active="privacy" /></div>
 
-###### Move 2 of 4
-
-# Set the level by who could identify whom
+# PETs according to who could identify whom
 
 <div>
 
-- **Pseudonymised data is still personal data** for anyone who can use the key. "Synthetic" says how data were made, not that they are safe.
+- Chose the right combination of **Privacy Enhancing Technologies** (PETs) to minimize personal data
+- **Pseudonymised data is still personal data**. 
 - **The same data can be personal for one party and not for another** (*EDPS v SRB*). Public release is the hard case: anyone, with any tool.
-- **Three checks:** can someone be singled out, linked to other data, or have something inferred about them? <span class="badge draft">Draft</span>
-- **Look at the most exposed person, not the average.** In medical AI, attacks looked close to guessing overall, yet were near-perfect for some patients.
+- **Is it anonymous? three checks:** can someone be singled out, linked to other data, or have something inferred about them? (see EDPB guidelines draft)
 - **Promise only what you can keep.** Do not write "anonymous" for a small interview study, and recheck as tools improve.
 
 </div>
@@ -326,7 +537,6 @@ layout: default
   <div class="card red"><div class="vw-who">Public download</div><div class="vw-verdict">Assume anyone</div></div>
 </div>
 
-<div class="running-case"><strong>Running case</strong> The realistic threat is a colleague who recognises a story.</div>
 
 <div class="ref-bottom"><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">GDPR</a> (Art 4(5), Recital 26) · <a href="https://www.fieldfisher.com/en-be/locations/belgium/insights/edps-v-srb-cjeu%e2%80%99s-contextual-approach-to-pseudonym">EDPS v SRB</a> · <a href="https://www.edpb.europa.eu/public-consultations/guidelines-022026-on-anonymisation_en">EDPB 02/2026 (draft)</a> · <a href="https://doi.org/10.1038/s41586-026-10688-0">Knolle 2026</a></div>
 
@@ -348,9 +558,8 @@ layout: default
 
 <div class="corner-icon"><TugOfWar mini :active="['ai', 'cyber']" /></div>
 
-###### Move 3 of 4
 
-# Match the tool to the data
+# 3. Match the tool to the data
 
 <div class="grid-2-3">
 <div>
@@ -401,8 +610,6 @@ layout: default
 ---
 
 <div class="corner-icon"><TugOfWar mini active="integrity" /></div>
-
-###### Move 4 of 4
 
 # Keep closed work checkable
 
