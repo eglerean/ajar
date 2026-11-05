@@ -611,7 +611,7 @@ layout: default
 
 <div class="corner-icon"><TugOfWar mini active="integrity" /></div>
 
-# Keep closed work checkable
+# 4. Keep closed work checkable
 
 <div class="verify">
   <div class="flow">
