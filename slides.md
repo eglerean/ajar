@@ -719,6 +719,29 @@ The AI-use disclosure wording is a draft: adjust it to what was actually done.
 -->
 
 ---
+layout: image-right
+image: /pets-landscape.png
+class: fit-image
+---
+
+###### Backup · Concepts
+
+# Privacy Enhancing Technologies (PETs)
+
+Broadly two families:
+
+- Techniques that **transform the data**
+- Techniques that **harden the computing environment**
+
+Embedded in the security of all other components.
+
+<p class="pets-caption">Figure 5.1 from <a href="https://www.edpb.europa.eu/system/files/2025-06/spe-training-on-ai-and-data-protection-technical_en.pdf">Glerean 2025</a>. The landscape of PETs solutions. Various techniques can be combined to ensure the privacy of the entire system by altering the data or by improving security of storage, communication, and computations. The image is an evolution of Garrido et al. (2022).</p>
+
+<style>
+.slidev-layout .pets-caption { position: absolute; left: 3.5rem; right: 2rem; bottom: 3.2rem; font-size: 0.66rem !important; line-height: 1.3 !important; opacity: 0.8; }
+</style>
+
+---
 layout: default
 ---
 
