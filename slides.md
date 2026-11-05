@@ -519,7 +519,7 @@ layout: default
 
 <div class="corner-icon"><TugOfWar mini active="privacy" /></div>
 
-# PETs according to who could identify whom
+# 2. PETs and who could identify whom
 
 <div>
 
@@ -531,20 +531,39 @@ layout: default
 
 </div>
 
-<div class="grid-3 viewers">
-  <div class="card dark"><div class="vw-who">Key holder</div><div class="vw-verdict">Personal data</div></div>
-  <div class="card yellow"><div class="vw-who">Recipient with no realistic means</div><div class="vw-verdict">Assess</div></div>
-  <div class="card red"><div class="vw-who">Public download</div><div class="vw-verdict">Assume anyone</div></div>
+<div class="spectrum">
+  <div class="sp-row">
+    <div class="sp-box" style="--c: var(--aalto-red)"><b>Personal data with direct identifiers</b></div>
+    <div class="sp-box" style="--c: var(--aalto-orange)"><b>Pseudonymisation</b><i>Replacing strong identifiers: tokenization, hashing, encryption</i></div>
+    <div class="sp-box" style="--c: var(--aalto-darkyellow)"><b>Masking</b><i>Suppression / removal of strong identifiers</i></div>
+    <div class="sp-box" style="--c: color-mix(in srgb, var(--aalto-darkyellow) 45%, var(--aalto-green))"><b>Anonymisation</b><i>K-anonymity, l-diversity, t-closeness, perturbation, data swapping, differential privacy</i></div>
+    <div class="sp-box" style="--c: var(--aalto-green)"><b>Anonymisation</b><i>Aggregation, data synthesis</i></div>
+  </div>
+  <div class="sp-arrow"><span class="sp-end sp-left">Personal data</span><span class="sp-end sp-right">Anonymous data</span></div>
+  <div class="sp-row">
+    <div class="sp-box sp-risk" style="--c: var(--aalto-red)">Easy to re-identify</div>
+    <div class="sp-box sp-risk" style="--c: var(--aalto-orange)">Can be re-identified with the key</div>
+    <div class="sp-box sp-risk" style="--c: var(--aalto-darkyellow)">The key is lost but other data (will) exist, and re-identification can be reasonably likely</div>
+    <div class="sp-box sp-risk" style="--c: color-mix(in srgb, var(--aalto-darkyellow) 45%, var(--aalto-green))">Impossible to re-identify, but data are still data from individuals</div>
+    <div class="sp-box sp-risk" style="--c: var(--aalto-green)">Impossible to re-identify, and data are not related to any individual</div>
+  </div>
 </div>
 
 
 <div class="ref-bottom"><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">GDPR</a> (Art 4(5), Recital 26) · <a href="https://www.fieldfisher.com/en-be/locations/belgium/insights/edps-v-srb-cjeu%e2%80%99s-contextual-approach-to-pseudonym">EDPS v SRB</a> · <a href="https://www.edpb.europa.eu/public-consultations/guidelines-022026-on-anonymisation_en">EDPB 02/2026 (draft)</a> · <a href="https://doi.org/10.1038/s41586-026-10688-0">Knolle 2026</a></div>
 
 <style>
-.viewers { margin: 0.5rem 0; }
-.viewers .card { padding: 0.5rem 0.8rem; }
-.vw-who { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; }
-.vw-verdict { font-family: var(--asc-font-serif); font-weight: 700; font-size: 1.2rem; }
+.spectrum { margin: 0.4rem 0 0; }
+.sp-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.5rem; }
+.sp-box { padding: 0.3rem 0.45rem; border: 2px solid var(--c); border-radius: var(--asc-radius-md); background: color-mix(in srgb, var(--c) 22%, transparent); font-size: 0.62rem; line-height: 1.2; text-align: center; }
+.sp-box b { display: block; font-family: var(--asc-font-serif); font-size: 0.74rem; line-height: 1.15; }
+.sp-box i { display: block; margin-top: 0.15rem; }
+.sp-risk { display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.68rem; }
+.sp-arrow { position: relative; height: 0.5rem; margin: 1.15rem 0.9rem 0.45rem 0; border-radius: 999px 0 0 999px; background: linear-gradient(90deg, var(--aalto-red), var(--aalto-orange), var(--aalto-darkyellow), var(--aalto-green)); }
+.sp-arrow::after { content: ""; position: absolute; right: -0.9rem; top: 50%; transform: translateY(-50%); border-left: 0.9rem solid var(--aalto-green); border-top: 0.6rem solid transparent; border-bottom: 0.6rem solid transparent; }
+.sp-end { position: absolute; bottom: 0.6rem; font-size: 0.66rem; font-weight: 700; font-style: italic; }
+.sp-left { left: 0; color: color-mix(in srgb, var(--aalto-red) 75%, var(--asc-text)); }
+.sp-right { right: 0; color: color-mix(in srgb, var(--aalto-green) 45%, var(--asc-text)); }
 </style>
 
 <!--
