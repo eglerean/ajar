@@ -550,7 +550,7 @@ layout: default
 </div>
 
 
-<div class="ref-bottom"><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">GDPR</a> (Art 4(5), Recital 26) · <a href="https://www.fieldfisher.com/en-be/locations/belgium/insights/edps-v-srb-cjeu%e2%80%99s-contextual-approach-to-pseudonym">EDPS v SRB</a> · <a href="https://www.edpb.europa.eu/public-consultations/guidelines-022026-on-anonymisation_en">EDPB 02/2026 (draft)</a> · <a href="https://doi.org/10.1038/s41586-026-10688-0">Knolle 2026</a></div>
+<div class="ref-bottom">Figure: <a href="https://www.edpb.europa.eu/documents/support-pool-of-experts/fundamentals-of-secure-ai-systems-with-personal-data_en">Glerean 2025, Fundamentals of Secure AI Systems with Personal Data</a> (EDPB) · <a href="https://www.edpb.europa.eu/public-consultations/guidelines-022026-on-anonymisation_en">EDPB 02/2026 (draft)</a> · <a href="https://doi.org/10.1038/s41586-026-10688-0">Knolle 2026</a></div>
 
 <style>
 .spectrum { margin: 0.4rem 0 0; }
