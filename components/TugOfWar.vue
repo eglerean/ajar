@@ -43,7 +43,7 @@ function cls(part: string) {
 
   <!-- Full diagram -->
   <svg v-else class="tw-full" viewBox="0 0 680 172" role="img"
-    aria-label="Tug of war: integrity pulls towards open, privacy pulls towards closed. AI stands behind integrity and adds risk; cybersecurity stands behind privacy and adds risk. The marker in the middle is your decision.">
+    aria-label="Tug of war: integrity pulls towards open, privacy pulls towards closed. AI stands behind both integrity and privacy and adds risk on each side. The marker in the middle is your decision.">
     <!-- direction labels -->
     <text x="215" y="22" class="tw-dir" text-anchor="start">← towards open</text>
     <text x="465" y="22" class="tw-dir" text-anchor="end">towards closed →</text>
@@ -67,11 +67,10 @@ function cls(part: string) {
     <text x="505" y="98" class="tw-name">Privacy</text>
     <text x="505" y="122" class="tw-sub">nobody harmed</text>
     <text x="505" y="138" class="tw-sub">by taking part</text>
-    <!-- Cybersecurity behind privacy -->
+    <!-- AI behind privacy (the mini icon still labels this part "C") -->
     <rect x="580" y="62" width="100" height="86" rx="12" :class="cls('cyber')" class="tw-back" />
-    <text x="630" y="100" class="tw-name tw-name-s">Cyber-</text>
-    <text x="630" y="118" class="tw-name tw-name-s">security</text>
-    <text x="630" y="138" class="tw-sub">adds risk</text>
+    <text x="630" y="100" class="tw-name">AI</text>
+    <text x="630" y="122" class="tw-sub">adds risk</text>
   </svg>
 </template>
 

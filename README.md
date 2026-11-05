@@ -1,6 +1,6 @@
 # As open as possible, as closed as necessary
 
-Research integrity, AI, privacy and cybersecurity through an open science lens. 20 slides, about 40 minutes.
+Research integrity, AI, privacy and cybersecurity through an open science lens. 11 slides plus 2 backup slides, about 20 minutes.
 
 Slides made with [Slidev](https://sli.dev) and the Aalto Scientific Computing theme (`slidev-theme-aalto-scicomp/`, included in this repo), with the same template and style as [genAI_researchintegrity](https://github.com/eglerean/genAI_researchintegrity). The content plan, with sources and the list of claims to check before presenting, is in `open_closed_slide_plan.md`.
 
@@ -12,30 +12,20 @@ Slides made with [Slidev](https://sli.dev) and the Aalto Scientific Computing th
 | Path | What it is |
 | --- | --- |
 | `open_closed_slide_plan.md` | The content plan: slide-by-slide bullets, diagrams, sources, and claims to check before presenting |
-| `slides.md` | The full deck (20 slides, about 40 minutes). The headmatter at the top sets the theme, palette, footer credit and PDF metadata. |
-| `slides-compact.md` | The compact deck (10 slides plus 2 backup slides, about 20 minutes), planned in `open_closed_slide_plan_compact.md` |
-| `components/TugOfWar.vue` | The tug-of-war diagram of the compact deck, also used as its corner icon (`<TugOfWar mini active="privacy" />`) |
+| `slides.md` | The deck (11 slides plus 2 backup slides, about 20 minutes). The headmatter at the top sets the theme, palette, footer credit and PDF metadata. |
+| `components/TugOfWar.vue` | The tug-of-war diagram, also used as the corner icon (`<TugOfWar mini active="privacy" />`) |
 | `public/` | Images and other static files, served from the site root. Refer to them as `/image.png`. Also holds `Glerean_2026_OpenClosed.pdf`. |
 | `slidev-theme-aalto-scicomp/` | A copy of the theme. Its `README.md` documents layouts, palettes and helpers. |
 | `style.css` | Deck-wide classes: type scale, reference lines, card grids, `.bp-matrix` tables, evidence and status badges, running-case box |
-| `components/DomainGrid.vue` | The four-domain grid from slide 4, also used as the small corner icon (`<DomainGrid mini active="priv-ai" />`) |
+| `components/DomainGrid.vue` | The four-domain grid used by the archived full deck |
+| `archive/` | The archived 20-slide full deck (`slides-full.md`) and its plan (`open_closed_slide_plan_full.md`). Not built or published. |
 | `styles/index.ts` | Lets you switch palettes from the command line (`VITE_PALETTE`) |
 | `.github/workflows/deploy.yml` | Builds the slides and publishes them on GitHub Pages |
 | `package.json` | Slidev version (pinned to 0.47, which the theme was built and tested on) and npm scripts |
 
-## Two decks
+## Archived full deck
 
-The repo holds two alternative versions of the talk. They share the theme, `style.css`, `components/` and `public/`.
-
-| | Full deck | Compact deck |
-| --- | --- | --- |
-| Source | `slides.md` | `slides-compact.md` |
-| Plan | `open_closed_slide_plan.md` | `open_closed_slide_plan_compact.md` |
-| Preview | `npm run dev` | `npm run dev:compact` |
-| Build | `npm run build` | `npm run build:compact` |
-| PDF | `npm run pdf` | `npm run pdf:compact` |
-
-Only one deck is published on GitHub Pages: `.github/workflows/deploy.yml` builds `slides.md`. To publish the compact deck instead, change the build line in the workflow to `npx slidev build slides-compact.md --base /${{ github.event.repository.name }}/`, and point the PDF download link in the headmatter of `slides-compact.md` at a committed PDF.
+An earlier 20-slide, 40-minute version of the talk is kept in `archive/`. It is not built or published. Slidev looks for `components/`, `style.css` and `public/` next to the deck file, so to preview it, copy it back to the repo root and change nothing else: `cp archive/slides-full.md slides-full.md && npx slidev slides-full.md --open`. Delete the copy afterwards.
 
 ## 1. Set up
 
