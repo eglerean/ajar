@@ -705,9 +705,8 @@ layout: end
 </ol>
 </div>
 
-Institutions owe researchers the **infrastructure that makes this the easy route**.
 
-<div class="ai-disclosure">AI use: generative AI tools were used substantially for the literature review behind this deck (substantial use under EC Guidelines v4) and for drafting the slide code. Legal and factual claims were checked on 4 November 2026; claims read only through summaries are listed in the source plan.</div>
+<div class="ai-disclosure">AI use: generative AI tools were used to code the deck as HTML pages and retrieve some sources.</div>
 
 <style>
 .slidev-layout.end h1 { font-size: 2.2rem !important; margin-bottom: 0.6rem; }
